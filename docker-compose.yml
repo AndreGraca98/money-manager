@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  api:
+    container_name: MM-API
+    build:
+      context: api
+      dockerfile: Dockerfile
+      target: runner
+    env_file:
+      - .env
+    ports:
+      - ${API_PORT_EXTERNAL:-8100}:80
+
+  s3:
+    container_name: MM-S3
+    restart: on-failure
+    image: minio/minio
+    env_file:
+      - .env
+    ports:
+      - ${MINIO_PORT_EXTERNAL}:9000
+      - ${MINIO_PORT_CONSOLE_EXTERNAL}:9001
+    command: server --address s3:9000  --console-address :9001 /data 
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "0.0.0.0:9000/minio/health/live" ]
+      interval: 30s
+      timeout: 20s
+      retries: 3
