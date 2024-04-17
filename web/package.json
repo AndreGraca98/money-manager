@@ -1,8 +1,8 @@
 {
   "name": "web",
   "version": "0.0.1",
-  "description": "A Quasar Project",
-  "productName": "Quasar App",
+  "description": "A Quasar app for Money-Manager",
+  "productName": "Money-Manager",
   "author": "andrepgraca@gmail.com",
   "private": true,
   "scripts": {
