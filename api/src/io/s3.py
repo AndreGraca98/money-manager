@@ -10,7 +10,7 @@ from minio.error import InvalidResponseError
 from ..env import ENV
 
 
-class FileType(Enum):
+class MinioStoreFileType(Enum):
     UNKNOWN = "application/octet-stream"
     PDF = "application/pdf"
     CSV = "application/csv"
@@ -66,7 +66,7 @@ class MinioStore:
         self,
         object_name: str,
         file_path: Path | str,
-        file_type: FileType = FileType.UNKNOWN,
+        file_type: MinioStoreFileType = MinioStoreFileType.UNKNOWN,
     ):
         """Store file in bucket."""
         self._validate_bucket()
@@ -98,35 +98,3 @@ class MinioStore:
         if not self.should_create_bucket:
             raise ValueError(f"Bucket does not exist: {self.bucket_name}")
         self.client.make_bucket(self.bucket_name)
-
-
-class MinioDownloader:
-    """Context manager to download multiple files from Minio.
-
-    ```
-    with MinioDownloader(
-        bucket_name="my-bucket", object_names=["file1", "file2"]
-    ) as downloader:
-        files: dict[str, Path] = downloader.download()
-        # files is a dict in format {object_name: file_path}
-        file1: Path = files["file1"]
-        file2: Path = files["file2"]
-    ```
-    """
-
-    def __init__(self, bucket_name: str, object_names: list[str]):
-        self.file_store = MinioStore(bucket_name)
-        self.object_names = object_names
-
-    def __enter__(self) -> Self:
-        return self
-
-    def download(self) -> dict[str, Path]:
-        """Download the files and return them as a dict."""
-        files: dict[str, Path] = dict()
-        for object_name in self.object_names:
-            files[object_name] = self.file_store.get_file(object_name)
-        return files
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.file_store.clean_up()
