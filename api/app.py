@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from src.env import ENV
 from src.routers.pdf import router as pdf_router
 from src.routers.s3 import router as s3_router
@@ -12,6 +13,7 @@ _log = getLogger(__name__)
 app = FastAPI()
 app.include_router(s3_router)
 app.include_router(pdf_router)
+app.mount("/imgs", StaticFiles(directory="images"), name="images")
 
 _log.info("Money-Manager API started")
 
@@ -23,4 +25,4 @@ def root() -> FileResponse:
 
 @app.get("/favicon.ico")
 async def favicon() -> FileResponse:
-    return FileResponse("public/money.png")
+    return FileResponse("images/money.png")

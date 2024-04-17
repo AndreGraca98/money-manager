@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Money Manager</title>
+  <title>Money-Manager API</title>
 </head>
 <style>
   :root {
     /* https://coolors.co/ed1c22-fdfefc-3b4b72-f1a302-020100 */
-    --white: #fdfefcff;
-    --black: #020100ff;
+    --white: #FDFEFC;
+    --black: #020100;
     
-    --orange-web: #f1a302ff;
-    --yinmn-blue: #3b4b72ff;
-    --red-cmyk: #ed1c22ff;
+    --orange-web: #F1A302;
+    --yinmn-blue: #3B4B72;
+    --red-cmyk: #ED1C22;
     --primary: var(--orange-web);
     --secondary: var(--yinmn-blue);
     --tertiary: var(--red-cmyk);
@@ -59,6 +59,17 @@
     }
   }
 
+  h1 a {
+    color: var(--secondary);
+    text-align: center;
+    text-decoration: none;
+  }
+
+  a {
+    color: var(--white);
+    text-decoration: none;
+  }
+
   .container {
     display: flex;
     justify-content: center;
@@ -73,29 +84,10 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   }
 
-  h1 {
-    color: var(--secondary);
-    text-align: center;
-    text-decoration: none;
-  }
-  h2 {
-    color: var(--secondary);
-    text-align: center;
-    text-decoration: none;
-  }
-  
-  .docs {
-    color: var(--secondary);
-    text-decoration: none;
-  }
-  
-  .docs:hover {
-    color: var(--tertiary);
-    text-decoration: none;
-  }
-  
-  .open-on-github {
-    display: block;
+  .box {
+    display: flex;
+    align-items:center;
+    justify-content: center;
     margin-top: 20px;
     padding: 10px 20px;
     background: var(--primary);
@@ -103,18 +95,23 @@
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
+    cursor: text;
   }
 
-  .endpoint {
-    font-size: 1.2em;
-    color: var(--secondary);
-    text-decoration: none;
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .box .icon {
+    margin-left: 5px;
   }
 
-  .endpoint:hover {
-    color: var(--tertiary);
-    text-decoration: none;
+  .box:hover {
+    background: var(--tertiary);
+    cursor: pointer;
   }
+
   
 </style>
 
@@ -122,21 +119,19 @@
   <div class="container">
     <div class="content">
       <h1><a class="docs" href="docs">Money-Manager API</a></h1>
-      <a class="open-on-github" href="https://github.com/AndreGraca98/money-manager/blob/main/api/README.md" target="_blank">
-        Open on GitHub
-      </a>
+        
+      <div class="box">
+        <a target="_blank" href="https://github.com/AndreGraca98/money-manager/blob/main/api/README.md">Go to API on</a>
+        <img class="icon" src="imgs/github.png" alt="GitHub" title="GitHub">
+      </div>
+      
+      <div class="box">
+        <a target="_blank" href="http://localhost:3100">Go to App</a>
+        <img class="icon" src="imgs/money.png" title="Money-Manager">
+      </div>
+      
     </div>
-    <!-- <br>
-    <ul >
-      <div class="content">
-        <h2>Current Users</h2>
-        <a class="endpoint" href="list-users">Users</a>
-      </div>
-
-      <div class="content">
-        <h2><a class="endpoint" href="list-files">Current Files</a></h2>
-      </div>
-    </ul>     -->
+  </div>
 </body>
 
 </html>
