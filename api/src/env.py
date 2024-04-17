@@ -6,6 +6,8 @@ class ENV:
         self._env = Env()
         self._env.read_env()
 
+        self.LOG_LEVEL: str = self._env.str("LOG_LEVEL", "INFO")
+
         self.MINIO_ADDRESS: str = self._env.str("MINIO_ADDRESS")
         self.MINIO_ROOT_USER: str = self._env.str("MINIO_ROOT_USER")
         self.MINIO_ROOT_PASSWORD: str = self._env.str("MINIO_ROOT_PASSWORD")

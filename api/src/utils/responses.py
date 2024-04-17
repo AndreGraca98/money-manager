@@ -1,11 +1,11 @@
-import logging
 import traceback
 from pathlib import Path
 from typing import Any
 
 from fastapi.responses import FileResponse, JSONResponse
+from src.utils.logging import getLogger
 
-_log = logging.getLogger(__name__)
+_log = getLogger(__name__)
 
 
 class JSONErrorResponse(JSONResponse):

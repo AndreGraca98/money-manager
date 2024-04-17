@@ -27,3 +27,9 @@ services:
       interval: 30s
       timeout: 20s
       retries: 3
+
+  # redis:
+  #   container_name: MM-REDIS
+  #   image: redis:6.0.9
+  #   ports:
+  #     - ${REDIS_PORT_EXTERNAL:-6379}:6379
