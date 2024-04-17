@@ -1,113 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Money Manager</title>
+  <meta charset="UTF-8">
+  <title>Money Manager</title>
 </head>
 <style>
-    :root {
-        /* https://coolors.co/ed1c22-fdfefc-3b4b72-f1a302-020100 */
-        /* CSS HEX */
-        --white: #fdfefcff;
-        --black: #020100ff;
-        
-        --orange-web: #f1a302ff;
-        --yinmn-blue: #3b4b72ff;
-        --red-cmyk: #ed1c22ff;
-        --primary: var(--orange-web);
-        --secondary: var(--yinmn-blue);
-        --tertiary: var(--red-cmyk);
-
-
-        /* SCSS Gradient */
-        /* --gradient-top: linear-gradient(0deg, #ed1c22ff, #fdfefcff, #3b4b72ff, #f1a302ff, #020100ff);
-        --gradient-right: linear-gradient(90deg, #ed1c22ff, #fdfefcff, #3b4b72ff, #f1a302ff, #020100ff);
-        --gradient-bottom: linear-gradient(180deg, #ed1c22ff, #fdfefcff, #3b4b72ff, #f1a302ff, #020100ff);
-        --gradient-left: linear-gradient(270deg, #ed1c22ff, #fdfefcff, #3b4b72ff, #f1a302ff, #020100ff);
-        --gradient-top-right: linear-gradient(45deg, #ed1c22ff, #fdfefcff, #3b4b72ff, #f1a302ff, #020100ff);
-        --gradient-bottom-right: linear-gradient(135deg, #ed1c22ff, #fdfefcff, #3b4b72ff, #f1a302ff, #020100ff);
-        --gradient-top-left: linear-gradient(225deg, #ed1c22ff, #fdfefcff, #3b4b72ff, #f1a302ff, #020100ff);
-        --gradient-bottom-left: linear-gradient(315deg, #ed1c22ff, #fdfefcff, #3b4b72ff, #f1a302ff, #020100ff); */
-        --gradient-radial: radial-gradient(var(--white), var(--primary), var(--secondary), var(--tertiary));
-    }
+  :root {
+    /* https://coolors.co/ed1c22-fdfefc-3b4b72-f1a302-020100 */
+    --white: #fdfefcff;
+    --black: #020100ff;
     
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Arial', sans-serif;
-        background: var(--gradient-radial);
-        background-size: 400% 400%;
-        animation: background_gradient 15s ease infinite;
-    }
+    --orange-web: #f1a302ff;
+    --yinmn-blue: #3b4b72ff;
+    --red-cmyk: #ed1c22ff;
+    --primary: var(--orange-web);
+    --secondary: var(--yinmn-blue);
+    --tertiary: var(--red-cmyk);
 
-    @keyframes background_gradient {
-        0% {
-            background-position: left;
-        }
-        25% {
-            background-position: top;
-        }
-        50% {
-            background-position: right;
-        }
-        75% {
-            background-position: bottom;
-        }
-        100% {
-            background-position: left;
-        }
-    }
+    --gradient-radial: radial-gradient(var(--white), var(--primary), var(--secondary), var(--tertiary));
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: var(--gradient-radial);
+    background-size: 400% 400%;
+    animation: background_gradient 60s ease infinite;
+  }
 
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+  @keyframes background_gradient {
+    0% {
+        background-position: left; /* 0% 50% */
     }
+    15% {
+        background-position: 100% 0%;
+    }
+    25% {
+        background-position: top; /* 50% 0% */
+    }
+    40% {
+        background-position: 0% 100%;
+    }
+    50% {
+        background-position: right; /* 100% 50% */
+    }
+    65% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: bottom; /* 50% 100% */
+    }
+    90% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: left; /* 0% 50% */
+    }
+  }
 
-    .content {
-        background: var(--white);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 
-    h1 {
-        color: var(--secondary);
-        text-align: center;
-        text-decoration: none;
-    }
-    
-    .docs {
-        color: var(--secondary);
-        text-decoration: none;
-    }
-    
-    .docs:hover {
-        color: var(--tertiary);
-        text-decoration: none;
-    }
-    
-    .open-on {
-        display: block;
-        margin-top: 20px;
-        padding: 10px 20px;
-        background: var(--primary);
-        color: var(--white);
-        text-align: center;
-        text-decoration: none;
-        border-radius: 5px;
-    }
-    
+  .content {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    color: var(--secondary);
+    text-align: center;
+    text-decoration: none;
+  }
+  h2 {
+    color: var(--secondary);
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .docs {
+    color: var(--secondary);
+    text-decoration: none;
+  }
+  
+  .docs:hover {
+    color: var(--tertiary);
+    text-decoration: none;
+  }
+  
+  .open-on-github {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: var(--white);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+
+  .endpoint {
+    font-size: 1.2em;
+    color: var(--secondary);
+    text-decoration: none;
+  }
+
+  .endpoint:hover {
+    color: var(--tertiary);
+    text-decoration: none;
+  }
+  
 </style>
 
 <body>
-    <div class="container">
-        <div class="content">
-            <h1><a class="docs" href="docs">Money Manager API</a></h1>
-            <a class="open-on" href="https://github.com/AndreGraca98/money-manager" target="_blank">Open on GitHub</a>
-        </div>
+  <div class="container">
+    <div class="content">
+      <h1><a class="docs" href="docs">Money Manager API</a></h1>
+      <a class="open-on-github" href="https://github.com/AndreGraca98/money-manager" target="_blank">
+        Open on GitHub
+      </a>
     </div>
+    <!-- <br>
+    <ul >
+      <div class="content">
+        <h2>Current Users</h2>
+        <a class="endpoint" href="list-users">Users</a>
+      </div>
+
+      <div class="content">
+        <h2><a class="endpoint" href="list-files">Current Files</a></h2>
+      </div>
+    </ul>     -->
 </body>
 
 </html>

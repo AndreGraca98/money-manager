@@ -4,6 +4,7 @@ from tempfile import mkstemp
 from typing import Self
 
 from minio.api import Minio
+from minio.datatypes import Object
 from minio.error import InvalidResponseError
 
 from ..env import ENV
@@ -46,16 +47,32 @@ class MinioStore:
     def list_files(self):
         """List all files in bucket."""
         self._validate_bucket()
-        return self.client.list_objects(self.bucket_name)
+        objs = self.client.list_objects(self.bucket_name)
+
+        def map_obj(obj: Object) -> dict:
+            return dict(
+                bucket_name=obj._bucket_name,
+                object_name=obj._object_name,
+                last_modified=(
+                    obj._last_modified.isoformat() if obj._last_modified else None
+                ),
+                content_type=obj._content_type,
+                size=obj._size,
+            )
+
+        return list(map(map_obj, objs))
 
     def store_file(
-        self, object_name: str, file_path: str, file_type: FileType = FileType.UNKNOWN
+        self,
+        object_name: str,
+        file_path: Path | str,
+        file_type: FileType = FileType.UNKNOWN,
     ):
         """Store file in bucket."""
         self._validate_bucket()
 
         self.client.fput_object(
-            self.bucket_name, object_name, file_path, file_type.value
+            self.bucket_name, object_name, str(file_path), file_type.value
         )
 
     def get_file(self, object_name: str) -> Path:
