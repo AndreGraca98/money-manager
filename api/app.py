@@ -1,9 +1,14 @@
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
+from src.env import ENV
+from src.routers.pdf import router as pdf_router
 from src.routers.s3 import router as s3_router
+
+ENV()  # Validate environment variables
 
 app = FastAPI()
 app.include_router(s3_router)
+app.include_router(pdf_router)
 
 
 @app.get("/")
