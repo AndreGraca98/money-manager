@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center background-animation">
-    <div class="box">
+    <div class="box" style="display: flex; align-items: center;">
       <h1>Welcome to Money-Manager!</h1>
       <img class="icon" src="money.png" />
     </div>
