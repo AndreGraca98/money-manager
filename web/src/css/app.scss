@@ -1,1 +1,97 @@
 // app global css in SCSS form
+:root {
+  --white: rgb(253, 254, 252); // #fdfefc;
+  --black: #020100;
+  --orange-web: #f1a302;
+  --yinmn-blue: #3b4b72;
+  --red-cmyk: #ed1c22; //#ed1c22;
+
+  --primary: var(--orange-web);
+  --secondary: var(--yinmn-blue);
+  --tertiary: var(--red-cmyk);
+
+  --mix-radial-gradient: radial-gradient(
+    circle,
+    var(--white),
+    var(--primary),
+    var(--tertiary),
+    var(--secondary)
+  );
+
+  --N: 50% 0%;
+  --S: 50% 100%;
+  --E: 100% 50%;
+  --W: 0% 50%;
+
+  --NE: 100% 0%;
+  --NW: 0% 0%;
+  --SE: 100% 100%;
+  --SW: 0% 100%;
+
+  --C: 50% 50%;
+
+  @keyframes bg_animation {
+    0% {
+      background-position: var(--NE);
+    }
+
+    12% {
+      background-position: var(--W);
+    }
+
+    24% {
+      background-position: var(--SE);
+    }
+
+    36% {
+      background-position: var(--N);
+    }
+
+    48% {
+      background-position: var(--SW);
+    }
+
+    60% {
+      background-position: var(--E);
+    }
+
+    72% {
+      background-position: var(--NW);
+    }
+
+    90% {
+      background-position: var(--S);
+    }
+
+    100% {
+      background-position: var(--NE);
+    }
+  }
+}
+
+h1 {
+  font-size: 2em;
+  color: var(--secondary);
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 20p;
+}
+
+.background-animation {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background: var(--mix-radial-gradient);
+  background-size: 400% 400%;
+  animation: bg_animation 60s ease infinite;
+}
+
+.box {
+  background: var(--white);
+  display: flex;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}

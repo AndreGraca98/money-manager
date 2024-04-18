@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Money-Manager API</title>
@@ -9,7 +10,7 @@
     /* https://coolors.co/ed1c22-fdfefc-3b4b72-f1a302-020100 */
     --white: #FDFEFC;
     --black: #020100;
-    
+
     --orange-web: #F1A302;
     --yinmn-blue: #3B4B72;
     --red-cmyk: #ED1C22;
@@ -19,7 +20,7 @@
 
     --gradient-radial: radial-gradient(var(--white), var(--primary), var(--secondary), var(--tertiary));
   }
-  
+
   body {
     margin: 0;
     padding: 0;
@@ -31,31 +32,44 @@
 
   @keyframes background_gradient {
     0% {
-        background-position: left; /* 0% 50% */
+      background-position: left;
+      /* 0% 50% */
     }
+
     15% {
-        background-position: 100% 0%;
+      background-position: 100% 0%;
     }
+
     25% {
-        background-position: top; /* 50% 0% */
+      background-position: top;
+      /* 50% 0% */
     }
+
     40% {
-        background-position: 0% 100%;
+      background-position: 0% 100%;
     }
+
     50% {
-        background-position: right; /* 100% 50% */
+      background-position: right;
+      /* 100% 50% */
     }
+
     65% {
-        background-position: 100% 100%;
+      background-position: 100% 100%;
     }
+
     75% {
-        background-position: bottom; /* 50% 100% */
+      background-position: bottom;
+      /* 50% 100% */
     }
+
     90% {
-        background-position: 0% 0%;
+      background-position: 0% 0%;
     }
+
     100% {
-        background-position: left; /* 0% 50% */
+      background-position: left;
+      /* 0% 50% */
     }
   }
 
@@ -86,7 +100,7 @@
 
   .box {
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: center;
     margin-top: 20px;
     padding: 10px 20px;
@@ -102,7 +116,7 @@
     width: 20px;
     height: 20px;
   }
-  
+
   .box .icon {
     margin-left: 5px;
   }
@@ -111,25 +125,23 @@
     background: var(--tertiary);
     cursor: pointer;
   }
-
-  
 </style>
 
 <body>
   <div class="container">
     <div class="content">
-      <h1><a class="docs" href="docs">Money-Manager API</a></h1>
-        
+      <h1><a href="docs">Money-Manager API</a></h1>
+
       <div class="box">
         <a target="_blank" href="https://github.com/AndreGraca98/money-manager/blob/main/api/README.md">Go to API on</a>
         <img class="icon" src="imgs/github.png" alt="GitHub" title="GitHub">
       </div>
-      
+
       <div class="box">
         <a target="_blank" href="http://localhost:3100">Go to App</a>
         <img class="icon" src="imgs/money.png" title="Money-Manager">
       </div>
-      
+
     </div>
   </div>
 </body>
