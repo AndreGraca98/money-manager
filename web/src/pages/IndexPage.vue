@@ -3,7 +3,7 @@
   <body>
     <q-page class="flex flex-center">
       <h1 style="color: black; font-size: 3em; text-align: center;">Welcome to Money-Manager</h1>
-      <img src="~assets/money.png" style="width: 200px; height: 200px">
+      <img src="assets/money.png" style="width: 200px; height: 200px">
     </q-page>
   </body>
 </template>

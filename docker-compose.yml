@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   api:
     container_name: MM-API
@@ -11,6 +9,17 @@ services:
       - .env
     ports:
       - ${API_PORT_EXTERNAL:-8100}:80
+  
+  web:
+    container_name: MM-WEB
+    build:
+      context: web
+      dockerfile: Dockerfile
+      target: runner
+    env_file:
+      - .env
+    ports:
+      - ${WEB_PORT_EXTERNAL:-3100}:3000
 
   s3:
     container_name: MM-S3
