@@ -104,6 +104,18 @@ const linksListRoutes = [
     icon: 'cloud_upload',
     link: '#/file-uploader'
   },
+  {
+    title: 'File Handler',
+    caption: 'Handle your files',
+    icon: 'cloud_download',
+    link: '#/file-handler'
+  },
+  {
+    title: 'About',
+    caption: 'About Money-Manager',
+    icon: 'info',
+    link: '#/about'
+  },
 ]
 
 const leftDrawerOpen = ref(false)
